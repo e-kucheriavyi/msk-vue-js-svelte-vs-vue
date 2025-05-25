@@ -36,14 +36,14 @@ layout: two-cols
 
 ::right::
 
-<img src="/images/photo.webp" style="position: absolute; top: 0; right: -20px; bottom: 0; width: 400px;"/>
+<img src="/images/photo.webp" style="position: absolute; top: 0; right: -20px; bottom: 0; width: 400px;" />
 
 ---
 layout: center
 class: text-center
 ---
 
-<span style="font-size: 5rem;"> x885 </span>
+<span style="font-size: 5rem;">x885</span>
 
 ---
 
@@ -134,7 +134,7 @@ class: text-center
 
 <Title title="Что такое Svelte" />
 
-> ## Svelte — Vue курильщика<v-click>?</v-click>
+> ## Svelte — Vue курильщика?
 
 <br>
 
@@ -212,7 +212,7 @@ title: Синтаксис
 
 ````
 
-<Plus type="base" v-click/>
+<Plus type="base" v-click />
 
 ---
 
@@ -259,7 +259,7 @@ title: Синтаксис
 
 ````
 
-<Plus type="base" v-click/>
+<Plus type="base" v-click />
 
 ---
 title: События
@@ -362,7 +362,7 @@ layout: center
 />
 ```
 
-<Plus type="cringe" v-click/>
+<Plus type="cringe" v-click />
 
 ---
 
@@ -511,7 +511,7 @@ layout: center
 />
 ```
 
-<Plus type="base" v-click/>
+<Plus type="base" v-click />
 
 ---
 hideInToc: true
@@ -522,7 +522,7 @@ layout: center
 
 ## Односторонняя реактивность
 
-<Plus type="base" v-click/>
+<Plus type="base" v-click />
 
 ---
 title: Реактивность
@@ -546,7 +546,7 @@ function Input({ value, onChange }: Props) {
 
 ```
 
-<Plus type="cringe" v-click/>
+<Plus type="cringe" v-click />
 
 ---
 
@@ -602,7 +602,7 @@ function Input({ value, onChange }: Props) {
 
 <!-- Usage -->
 <template>
-	<ValidatedInput v-model="text" v-model:error="error"/>
+	<ValidatedInput v-model="text" v-model:error="error" />
 </template>
 ```
 
@@ -662,11 +662,7 @@ title: computed / $derived
 </script>
 ```
 
-<v-click>
-
-<Plus type="base"/>
-
-</v-click>
+<Plus type="base" v-click />
 
 ---
 
@@ -701,9 +697,9 @@ title: computed / $derived
 
 ````
 
-<Plus type="base" v-click.at="[1]"/>
+<Plus type="base" v-click.at="[1]" />
 
-<Plus type="cringe" v-click.at="[3]"/>
+<Plus type="cringe" v-click.at="[3]" />
 
 ---
 title: Сторы
@@ -830,16 +826,14 @@ title: Provide / Context
 
 ````md magic-move
 
-```vue
+```vue {all|1-6|8-12}
 <script setup lang="ts">
 	import { ref, provide } from 'vue'
 
 	const count = ref(0)
 	provide('key', count)
 </script>
-```
 
-```vue
 <script setup lang="ts">
 	import { inject } from 'vue'
 
@@ -858,7 +852,7 @@ app.provide(/* key */ 'message', /* value */ 'hello!')
 
 ````
 
-<Plus type="base" :value="1" v-click/>
+<Plus type="base" :value="1" v-click />
 
 ---
 
@@ -878,7 +872,7 @@ export function getUserContext() {
 }
 ```
 
-<Plus type="base" :value="1" v-click/>
+<Plus type="base" :value="1" v-click />
 
 ---
 title: Composables / Actions
@@ -994,17 +988,14 @@ title: Стили
 
 <Title title="Стили: Svelte" />
 
-```svelte {all|15-19|9|10|11|12}
+```svelte {all|12-16|6|7|8|9}
 <script lang="ts">
-	let {
-		isActive,
-		active
-	}: { isActive: boolean, active: boolean } = $props()
+	let { active }: { active: boolean } = $props()
 </script>
 
 <div
 	class="active"
-	class:active={isActive}
+	class:active={active}
 	class:active
 	class={{ disabled: !isActive }}
 ></div>
@@ -1016,8 +1007,7 @@ title: Стили
 </style>
 ```
 
-<Plus type="base" :value="4" v-click/>
-
+<Plus type="base" :value="4" v-click />
 
 ---
 
@@ -1043,7 +1033,7 @@ title: Стили
 </style>
 ```
 
-<Plus type="cringe" :value="1" v-click/>
+<Plus type="cringe" :value="1" v-click />
 
 ---
 title: Анимации
@@ -1055,7 +1045,7 @@ class: text-center
 
 ## У обоих фреймворков классные инструменты для анимаций
 
-<Plus type="base" v-click/>
+<Plus type="base" v-click />
 
 ---
 title: Слоты
@@ -1109,7 +1099,7 @@ title: Слоты
 
 </v-clicks>
 
-<Plus type="base" :value="6" v-click/>
+<Plus type="base" :value="6" v-click />
 
 ---
 
@@ -1195,7 +1185,7 @@ title: Слоты
 
 ````
 
-<Plus type="base" :value="6" v-click/>
+<Plus type="base" :value="6" v-click />
 
 ---
 title: Роутинг
@@ -1215,9 +1205,9 @@ layout: two-cols
 
 ::right::
 
-<Qr data="https://www.npmjs.com/package/@laranatech/router" label="@laranatech/router" v-click/>
+<Qr data="https://www.npmjs.com/package/@laranatech/router" label="@laranatech/router" v-click />
 
-<Plus type="larana" :value="4" v-click/>
+<Plus type="larana" :value="4" v-click />
 
 ---
 layout: center
@@ -1354,7 +1344,7 @@ title: Миграция
 
 </v-clicks>
 
-<Plus type="base" :value="3" v-click/>
+<Plus type="base" :value="3" v-click />
 
 ---
 layout: center
@@ -1362,7 +1352,7 @@ layout: center
 
 <Title title="Миграция: Vue" />
 
-<img src="/images/naruto.webp" style="height: 480px;"/>
+<img src="/images/naruto.webp" style="height: 480px;" />
 
 ---
 layout: center
@@ -1370,7 +1360,7 @@ layout: center
 
 <Title title="Миграция: Vue" />
 
-<img src="/images/hero.jpg" style="height: 480px;"/>
+<img src="/images/hero.jpg" style="height: 480px;" />
 
 ---
 layout: center
@@ -1380,7 +1370,7 @@ layout: center
 
 <Qr data="https://www.youtube.com/watch?v=cp2rRlEK2ic" label="Пусть наебнётся" />
 
-<Plus type="cringe" v-click/>
+<Plus type="cringe" v-click />
 
 ---
 layout: center
@@ -1408,7 +1398,7 @@ class: text-center
 
 <Title title="Спасибо за внимание" />
 
-<Qr data="https://t.me/+DwMpehY_jcM1YzIy" label="@frontend_director"/>
+<Qr data="https://t.me/+DwMpehY_jcM1YzIy" label="@frontend_director" />
 
 <br>
 
