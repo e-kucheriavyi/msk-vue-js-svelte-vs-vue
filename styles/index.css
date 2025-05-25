@@ -1,0 +1,28 @@
+.green {
+	color: #3caa3c !important;
+}
+
+.yellow {
+	color: yellow !important;
+}
+
+.red {
+	color: red !important;
+}
+
+.slidev-page {
+	width: 98%;
+}
+
+:root {
+	--slidev-code-font-size: 1rem;
+	--slidev-code-line-height: 1.5rem;
+}
+
+/* .slidev-layout p {
+	font-size: 2rem;
+}
+
+.slidev-layout li {
+	font-size: 1.875rem;
+} */
