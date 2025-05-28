@@ -12,8 +12,8 @@
 		class="absolute top-0 left-0 right-0 pt-2 pl-14 text-left"
 	>
 		<div class="h1">
-			<img v-if="lang === 'vue'" src="/images/vue.svg" class="vue" />
-			<img v-if="lang === 'svelte'" src="/images/svelte-logo.svg" class="svelte" />
+			<img v-if="lang === 'vue'" src="/public/vue.svg" class="vue" />
+			<img v-if="lang === 'svelte'" src="/public/svelte-logo.svg" class="svelte" />
 			{{ cat }}{{ cat && title ? ': ' : '' }}
 			{{ title }}
 		</div>

@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /images/svelte-vs-vue.webp
+background: /public/svelte-vs-vue.webp
 title: Svelte — Vue курильщика?
 info: Svelte — Vue курильщика?
 class: text-center
@@ -42,7 +42,7 @@ layout: two-cols
 
 ::right::
 
-<img src="/images/photo.webp" style="position: absolute; top: 0; right: -20px; bottom: 0; width: 400px;" />
+<img src="/public/photo.webp" style="position: absolute; top: 0; right: -20px; bottom: 0; width: 400px;" />
 
 ---
 layout: center
@@ -109,13 +109,13 @@ class: text-center
 layout: center
 ---
 
-<img src="/images/drink_0.webp" />
+<img src="/public/drink_0.webp" />
 
 ---
 layout: center
 ---
 
-<img src="/images/dring.webp" />
+<img src="/public/dring.webp" />
 
 ---
 layout: center
@@ -183,7 +183,7 @@ class: text-center
 layout: center
 ---
 
-<img src="/images/gosling.jpg" style="height: 530px;" />
+<img src="/public/gosling.jpg" style="height: 530px;" />
 
 ---
 title: Синтаксис
@@ -1310,7 +1310,7 @@ layout: center
 
 <Title title="Virtual DOM" />
 
-<img src="/images/vdom.jpg" />
+<img src="/public/vdom.jpg" />
 
 ---
 layout: center
@@ -1340,7 +1340,7 @@ layout: center
 
 <Title cat="Virtual DOM" lang="vue" />
 
-<img src="/images/vapor.png" />
+<img src="/public/vapor.png" />
 
 ---
 title: Сборка
@@ -1419,7 +1419,7 @@ layout: center
 
 <Title cat="Миграция" lang="vue" title="Боль" />
 
-<img src="/images/naruto.webp" style="height: 480px;" />
+<img src="/public/naruto.webp" style="height: 480px;" />
 
 ---
 layout: center
@@ -1427,7 +1427,7 @@ layout: center
 
 <Title cat="Миграция" lang="vue" title="Боль" />
 
-<img src="/images/hero.jpg" style="height: 480px;" />
+<img src="/public/hero.jpg" style="height: 480px;" />
 
 ---
 layout: center
