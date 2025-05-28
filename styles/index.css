@@ -10,6 +10,10 @@
 	color: red !important;
 }
 
+.orange {
+	color: orange !important;
+}
+
 .slidev-page {
 	width: 98%;
 }
@@ -19,10 +23,16 @@
 	--slidev-code-line-height: 1.5rem;
 }
 
-/* .slidev-layout p {
-	font-size: 2rem;
+.slidev-layout blockquote {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
-.slidev-layout li {
-	font-size: 1.875rem;
-} */
+.block {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	background: rgba(0, 0, 0, 0.9);
+}

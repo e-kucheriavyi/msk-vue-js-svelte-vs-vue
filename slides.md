@@ -12,9 +12,15 @@ hideInToc: true
 lineNumbers: true
 ---
 
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="block">
+
 # Svelte — Vue курильщика?
 
 ## Женя Кучерявый | LaranaTech
+
+</div>
 
 ---
 layout: two-cols
@@ -87,7 +93,8 @@ class: text-center
 
 <Title title="Что такое Svelte" />
 
-> ## Svelte разрабатывается по приницу hype driven development
+> ## Svelte разрабатывается по приницу
+> ## hype driven development
 
 <br>
 
@@ -152,23 +159,37 @@ class: text-center
 
 - ## Разбираем фичи фреймворка
 - ## Оцениваем: Кринж и База?
-- ## В конце подводим итоги
 
 </v-clicks>
+
+<Plus type="base" v-click />
+<Plus type="cringe" v-click />
+
+<v-click>
+
+- ## В конце подводим итоги
+
+</v-click>
 
 <br><br>
 
 <v-click>
 
-> ## ! Рассмотрим не все аспекты
+> ## <span class="orange">!</span> Рассмотрим не все аспекты
 
 </v-click>
+
+---
+layout: center
+---
+
+<img src="/images/gosling.jpg" style="height: 530px;" />
 
 ---
 title: Синтаксис
 ---
 
-<Title title="Синтаксис: Vue" />
+<Title cat="Синтаксис" lang="vue" />
 
 ````md magic-move
 
@@ -186,7 +207,7 @@ title: Синтаксис
 </script>
 
 <template>
-	<div v-for="item of items" class="item">{{ item }}</div>
+	<div v-for="(item, key) of items" :key class="item">{{ item }}</div>
 	<form @submit.prevent="addItem">
 		<input v-model="text" />
 		<button type="submit">Submit</button>
@@ -196,7 +217,7 @@ title: Синтаксис
 
 ```vue
 <template>
-	<div v-for="item of items" class="item">{{ item }}</div>
+	<div v-for="(item, key) of items" :key class="item">{{ item }}</div>
 	<form @submit.prevent="addItem">
 		<input v-model="text" />
 		<button type="submit">Submit</button>
@@ -216,7 +237,7 @@ title: Синтаксис
 
 ---
 
-<Title title="Синтаксис: Svelte" />
+<Title cat="Синтаксис" lang="svelte" />
 
 ````md magic-move
 
@@ -262,53 +283,54 @@ title: Синтаксис
 <Plus type="base" v-click />
 
 ---
+
+
+<Title cat="Синтаксис" lang="svelte" />
+
+```svelte
+<script>
+	import { interval, startWith } from 'rxjs'
+
+	const timer$ = interval(1000).pipe(
+		startWith(0)
+	)
+</script>
+
+<p>Counter: {$timer$}</p>
+```
+
+---
 title: События
 ---
 
-<Title title="События: Vue" />
+<Title cat="Cобытия" lang="vue" />
 
 ````md magic-move
 
 ```vue
 <button
 	v-on:click="increase"
->Click me!</button>
-<button
 	v-on:click.right.prevent.stop.once="decrease"
->Click me!</button>
-<button
 	v-on:click="(event) => increase(event)"
->Click me!</button>
-<button
 	v-on:click="counter++"
->Click me!</button>
-<button
 	v-on:click="increase($event)"
->Click me!</button>
-<button
 	v-on:click="console.log(1); console.log(2); console.log(3)"
->Click me!</button>
+>
+	Click me!
+</button>
 ```
 
-```vue {all|2|5|8|11|14|17}
+```vue {all|2|3|4|5|6|7}
 <button
 	@click="increase"
->Click me!</button>
-<button
 	@click.right.prevent.stop.once="decrease"
->Click me!</button>
-<button
 	@click="(event) => increase(event)"
->Click me!</button>
-<button
 	@click="counter++"
->Click me!</button>
-<button
 	@click="increase($event)"
->Click me!</button>
-<button
 	@click="console.log(1); console.log(2); console.log(3)"
->Click me!</button>
+>
+	Click me!
+</button>
 ```
 
 ```vue
@@ -327,7 +349,9 @@ title: События
 			'submit',
 			{ email: 'e@vgenii.ru', password: 'qwerty' }
 		)"
-	>Submit</button>
+	>
+		Submit
+	</button>
 </template>
 ```
 
@@ -337,16 +361,17 @@ title: События
 layout: center
 ---
 
-<Title title="События: Vue" />
+<Title cat="Cобытия" lang="vue" />
 
 <CenterPlus :cringe="1" :base="4" />
 
 ---
 
-<Title title="События: Svelte" />
+<Title cat="Cобытия" lang="svelte" />
 
+````md magic-move
 
-```svelte {all|6-7|11-12|3}
+```svelte {all|2|6-7}
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte'
 	const dispatch = createEventDispatcher()
@@ -354,36 +379,37 @@ layout: center
 
 <button on:click={() => dispatch('decrement')}>decrement</button>
 <button on:click={() => dispatch('increment')}>increment</button>
+```
 
-<!--Parent-->
+```svelte
 <Stepper
 	on:decrement|stopPropagation={() => n -= 1}
 	on:increment|preventDefault={() => n += 1}
 />
 ```
 
+````
+
 <Plus type="cringe" v-click />
 
 ---
 
-<Title title="События: Svelte" />
+<Title cat="Cобытия" lang="svelte" />
 
 ````md magic-move
 
-```svelte {all|2|5|8}
+```svelte {all|2|3|4}
 <button
 	onclick={counter.increase}
->Click me!</button>
-<button
 	onclick={(event) => counter.increase(event)}
->Click me!</button>
-<button
 	{onclick}
->Click me!</button>
+>
+	Click me!
+</button>
 ```
 
 ```svelte
-<script>
+<script lang="ts">
 	const makeHandler = () => {
 		return () => {
 			console.log(111)
@@ -401,7 +427,7 @@ layout: center
 layout: center
 ---
 
-<Title title="События: Svelte" />
+<Title cat="Cобытия" lang="svelte" />
 
 <CenterPlus :cringe="1" :base="3" />
 
@@ -409,7 +435,7 @@ layout: center
 title: Пропсы
 ---
 
-<Title title="Пропсы: Vue" />
+<Title cat="Пропсы" lang="vue" />
 
 ````md magic-move
 
@@ -428,7 +454,7 @@ title: Пропсы
 	import { computed } from 'vue'
 
 	const props = defineProps({
-		value: number,
+		value: Number,
 	})
 
 	const computedValue = computed(() => props.value * 2)
@@ -483,13 +509,13 @@ title: Пропсы
 layout: center
 ---
 
-<Title title="Пропсы: Vue" />
+<Title cat="Пропсы" lang="vue" />
 
 <CenterPlus :cringe="2" :base="3" />
 
 ---
 
-<Title title="Пропсы: Svelte" />
+<Title cat="Пропсы" lang="svelte" />
 
 ```svelte {all|2-5|7-10|14|15|16}
 <script lang="ts">
@@ -514,11 +540,38 @@ layout: center
 <Plus type="base" v-click />
 
 ---
+layout: center
+class: text-center
+---
+
+> ## Write less, do more
+
+<br>
+
+<v-switch>
+
+<template #0>
+
+## jQuery
+
+</template>
+
+<template #1>
+
+## ~~jQuery~~
+
+## Svelte
+
+</template>
+
+</v-switch>
+
+---
 hideInToc: true
 layout: center
 ---
 
-<Title title="Пропсы" />
+<Title cat="Пропсы" />
 
 ## Односторонняя реактивность
 
@@ -550,7 +603,7 @@ function Input({ value, onChange }: Props) {
 
 ---
 
-<Title title="Реактивность: v-model" />
+<Title cat="Реактивность" lang="vue" title="v-model" />
 
 ````md magic-move
 
@@ -565,8 +618,9 @@ function Input({ value, onChange }: Props) {
 		@input="emit('update:modelValue', $event.target.value)"
 	/>
 </template>
+```
 
-<!-- Parent -->
+```vue
 <template>
 	<Input
 		:modelValue="value"
@@ -585,7 +639,7 @@ function Input({ value, onChange }: Props) {
 </template>
 ```
 
-```vue {all|3|17}
+```vue {all|3}
 <script setup lang="ts">
 	const value = defineModel({ type: String })
 	const error = defineModel('error', { type: String })
@@ -599,8 +653,9 @@ function Input({ value, onChange }: Props) {
 		</div>
 	</div>
 </template>
+```
 
-<!-- Usage -->
+```vue
 <template>
 	<ValidatedInput v-model="text" v-model:error="error" />
 </template>
@@ -612,13 +667,13 @@ function Input({ value, onChange }: Props) {
 layout: center
 ---
 
-<Title title="Реактивность: v-model" />
+<Title cat="Реактивность" lang="vue" title="v-model" />
 
 <CenterPlus :cringe="1" :base="2" />
 
 ---
 
-<Title title="Реактивность: $bindable()" />
+<Title cat="Реактивность" lang="svelte" title="$bindable()" />
 
 ```svelte {all|3-4|8-9|13}
 <script lang="ts">
@@ -642,7 +697,7 @@ layout: center
 title: computed / $derived
 ---
 
-<Title title="computed" />
+<Title cat="Вычисляемые значения" lang="vue" title="computed" />
 
 ```vue
 <script setup lang="ts">
@@ -666,7 +721,7 @@ title: computed / $derived
 
 ---
 
-<Title title="$derived" />
+<Title cat="Вычисляемые значения" lang="svelte" title="$derived" />
 
 ````md magic-move
 
@@ -705,7 +760,7 @@ title: computed / $derived
 title: Сторы
 ---
 
-<Title title="Сторы" />
+<Title cat="Сторы" />
 
 ````md magic-move
 
@@ -755,13 +810,13 @@ export const makeStore = () => {
 
 ````
 
-<Plus type="base" />
+<Plus type="base" v-click />
 
 ---
 title: Хуки
 ---
 
-<Title title="Хуки: Vue" />
+<Title cat="Хуки" lang="vue" />
 
 ```vue {all|4-6|7-9|10-12}
 <script setup lang="ts">
@@ -774,7 +829,7 @@ title: Хуки
 		console.log(`the component is now unmounted.`)
 	})
 	onUpdated(() => {
-		console.log(`the component is now mounted.`)
+		console.log(`the component is now updated.`)
 	})
 </script>
 ```
@@ -783,13 +838,13 @@ title: Хуки
 layout: center
 ---
 
-<Title title="Хуки: Vue" />
+<Title cat="Хуки" lang="vue" />
 
 <CenterPlus :cringe="1" :base="3" />
 
 ---
 
-<Title title="Хуки: Svelte" />
+<Title cat="Хуки" lang="svelte" />
 
 ```svelte {all|4-6|7-9|10-15}
 <script lang="ts">
@@ -814,7 +869,7 @@ layout: center
 layout: center
 ---
 
-<Title title="Хуки: Vue" />
+<Title cat="Хуки" lang="svelte" />
 
 <CenterPlus :cringe="1" :base="2" />
 
@@ -822,7 +877,7 @@ layout: center
 title: Provide / Context
 ---
 
-<Title title="Vue: provide/inject" />
+<Title cat="Контекст" lang="vue" title="provide/inject" />
 
 ````md magic-move
 
@@ -856,7 +911,7 @@ app.provide(/* key */ 'message', /* value */ 'hello!')
 
 ---
 
-<Title title="Svelte: context" />
+<Title cat="Контекст" lang="svelte" title="setContext/getContext" />
 
 ```ts
 import { getContext, setContext } from 'svelte'
@@ -879,13 +934,13 @@ title: Composables / Actions
 layout: center
 ---
 
-<Title title="Vue: Composables" />
+<Title cat="Переиспользование" lang="vue" title="composables" />
 
 <CenterPlus :base="1" />
 
 ---
 
-<Title title="Svelte: Actions" />
+<Title cat="Переиспользование" lang="svelte" title="actions" />
 
 ````md magic-move
 
@@ -945,7 +1000,7 @@ const gestures: Action<
 
 ---
 
-<Title title="Svelte: Actions" />
+<Title cat="Переиспользование кода фреймворка" lang="svelte" title="actions" />
 
 <v-clicks>
 
@@ -957,7 +1012,7 @@ const gestures: Action<
 
 ---
 
-<Title title="Svelte: @attach" />
+<Title cat="Переиспользование кода фреймворка" lang="svelte" title="@attach" />
 
 ```svelte
 <canvas
@@ -978,7 +1033,7 @@ const gestures: Action<
 layout: center
 ---
 
-<Title title="Svelte: Actions / @attach" />
+<Title cat="Переиспользование кода фреймворка" lang="svelte" title="actions / @attach" />
 
 <CenterPlus :cringe="3" :base="1" />
 
@@ -986,7 +1041,7 @@ layout: center
 title: Стили
 ---
 
-<Title title="Стили: Svelte" />
+<Title cat="Стили" lang="svelte" />
 
 ```svelte {all|12-16|6|7|8|9}
 <script lang="ts">
@@ -1011,7 +1066,7 @@ title: Стили
 
 ---
 
-<Title title="Стили: Vue" />
+<Title cat="Стили" lang="vue" />
 
 ```vue {all|1-5}
 <style>
@@ -1051,7 +1106,7 @@ class: text-center
 title: Слоты
 ---
 
-<Title title="Vue: slot" />
+<Title cat="Фрагменты шаблонов" lang="vue" title="slot" />
 
 ````md magic-move
 
@@ -1086,7 +1141,7 @@ title: Слоты
 
 ---
 
-<Title title="Vue: slot" />
+<Title cat="Фрагменты шаблонов" lang="vue" title="slot" />
 
 <v-clicks>
 
@@ -1103,7 +1158,7 @@ title: Слоты
 
 ---
 
-<Title title="Svelte: snippet" />
+<Title cat="Фрагменты шаблонов" lang="svelte" title="snippet" />
 
 ````md magic-move
 
@@ -1192,7 +1247,7 @@ title: Роутинг
 layout: two-cols
 ---
 
-<Title title="Роутинг: Vue" />
+<Title cat="Роутинг" lang="vue" />
 
 <v-clicks>
 
@@ -1215,7 +1270,7 @@ class: text-center
 hideInToc: true
 ---
 
-<Title title="Роутинг: Svelte" />
+<Title cat="Роутинг" lang="svelte" />
 
 <v-switch>
 
@@ -1253,7 +1308,19 @@ title: Virtual DOM
 layout: center
 ---
 
-<Title title="Virtual DOM: Svelte" />
+<Title title="Virtual DOM" />
+
+<img src="/images/vdom.jpg" />
+
+---
+layout: center
+---
+
+<Qr data="https://www.youtube.com/watch?v=x7cQ3mrcKaY" label="Pete Hunt: React: Rethinking best practices -- JSConf EU" />
+
+---
+
+<Title cat="Virtual DOM" lang="svelte" />
 
 <v-click>
 
@@ -1271,7 +1338,7 @@ layout: center
 layout: center
 ---
 
-<Title title="Virtual DOM: Vue" />
+<Title cat="Virtual DOM" lang="vue" />
 
 <img src="/images/vapor.png" />
 
@@ -1279,7 +1346,7 @@ layout: center
 title: Сборка
 ---
 
-<Title title="Сборка: Vue" />
+<Title cat="Сборка" lang="vue" />
 
 <v-clicks>
 
@@ -1302,7 +1369,7 @@ title: Сборка
 
 ---
 
-<Title title="Сборка: Svelte" />
+<Title cat="Сборка" lang="svelte" />
 
 <v-click>
 
@@ -1326,7 +1393,7 @@ title: Сборка
 layout: center
 ---
 
-<Title title="Сборка: Svelte" />
+<Title cat="Сборка" lang="svelte" />
 
 <Qr data="https://github.com/MrWaip/svelte-rs-2" />
 
@@ -1334,7 +1401,7 @@ layout: center
 title: Миграция
 ---
 
-<Title title="Миграция: Svelte" />
+<Title cat="Миграция" lang="svelte" />
 
 <v-clicks>
 
@@ -1350,7 +1417,7 @@ title: Миграция
 layout: center
 ---
 
-<Title title="Миграция: Vue" />
+<Title cat="Миграция" lang="vue" title="Боль" />
 
 <img src="/images/naruto.webp" style="height: 480px;" />
 
@@ -1358,7 +1425,7 @@ layout: center
 layout: center
 ---
 
-<Title title="Миграция: Vue" />
+<Title cat="Миграция" lang="vue" title="Боль" />
 
 <img src="/images/hero.jpg" style="height: 480px;" />
 
@@ -1366,7 +1433,7 @@ layout: center
 layout: center
 ---
 
-<Title title="Миграция: Vue" />
+<Title cat="Миграция" lang="vue" title="Боль" />
 
 <Qr data="https://www.youtube.com/watch?v=cp2rRlEK2ic" label="Пусть наебнётся" />
 
@@ -1382,10 +1449,27 @@ title: Итоги
 <Totals />
 
 ---
-layout: center
----
 
-> ## Рассмотрели не все критерии
+<Title title="Итоги" />
+
+<v-clicks>
+
+- ## Рассмотрели не все критерии
+- ## Спикер пердвзят
+
+</v-clicks>
+
+<br>
+
+<v-clicks>
+
+- ## Svelte становится беднее
+- ## Не всегдя бедность лишает его глубины
+- ## Vue классный
+- ## React хуже всего
+
+</v-clicks>
+
 
 ---
 

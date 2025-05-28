@@ -17,7 +17,7 @@
 </script>
 
 <template>
-	<div class="plus">
+	<div class="block plus">
 		+{{ value }} {{ getIcon(type) }}
 	</div>
 </template>
@@ -31,8 +31,5 @@
 		right: 2rem;
 		bottom: 2rem;
 		rotate: -30deg;
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		background: rgba(0, 0, 0, 0.9);
 	}
 </style>
