@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /public/svelte-vs-vue.webp
+background: /svelte-vs-vue.webp
 title: Svelte — Vue курильщика?
 info: Svelte — Vue курильщика?
 class: text-center

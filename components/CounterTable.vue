@@ -42,7 +42,6 @@
 		border: 1px solid var(--border-color);
 		display: flex;
 		flex-direction: column;
-		/* padding: 1rem; */
 		background-color: #111;
 	}
 
@@ -54,7 +53,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: stretch;
-		/* gap: 1rem; */
 	}
 
 	.tr:nth-of-type(2n) {
