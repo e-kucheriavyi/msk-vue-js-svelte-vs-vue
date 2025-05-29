@@ -109,13 +109,13 @@ class: text-center
 layout: center
 ---
 
-<img src="/public/drink_0.webp" />
+<img src="/public/cocktail-1.webp" />
 
 ---
 layout: center
 ---
 
-<img src="/public/dring.webp" />
+<img src="/public/cocktail-2.webp" />
 
 ---
 layout: center
@@ -1000,7 +1000,7 @@ const gestures: Action<
 
 ---
 
-<Title cat="Переиспользование кода фреймворка" lang="svelte" title="actions" />
+<Title cat="Переиспользование" lang="svelte" title="actions" />
 
 <v-clicks>
 
@@ -1012,7 +1012,7 @@ const gestures: Action<
 
 ---
 
-<Title cat="Переиспользование кода фреймворка" lang="svelte" title="@attach" />
+<Title cat="Переиспользование" lang="svelte" title="@attach" />
 
 ```svelte
 <canvas
@@ -1033,7 +1033,7 @@ const gestures: Action<
 layout: center
 ---
 
-<Title cat="Переиспользование кода фреймворка" lang="svelte" title="actions / @attach" />
+<Title cat="Переиспользование" lang="svelte" title="actions / @attach" />
 
 <CenterPlus :cringe="3" :base="1" />
 
