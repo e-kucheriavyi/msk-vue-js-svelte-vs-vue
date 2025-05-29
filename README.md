@@ -1,7 +1,15 @@
 # Svelte — Vue курильщика?
 
+## Как запустить
+
+```sh
+npm install
+npm run dev
+```
+
 ## Ссылки
 
+- [Московские дринкапы](https://t.me/moscow_drinkup)
 - [laranatech](https://larana.tech)
 - Доклад [LaranJS: настоящий SSR](https://www.youtube.com/watch?v=G1laetClEEg)
 - Доклад Николая Пугачёва: [RxJS: Великий и Ужасный. Описываем сложную асинхронную логику вне зависимости от стека](https://holyjs.ru/archive/2025%20Spring/talks/7415b7af723d48e3901c9fc93d4517b9)
@@ -11,4 +19,5 @@
 - [Pete Hunt: React: Rethinking best practices -- JSConf EU](https://www.youtube.com/watch?v=x7cQ3mrcKaY)
 - [Альтернативный сборщик Svelte](https://github.com/MrWaip/svelte-rs-2)
 - [Пусть наебнётся](https://www.youtube.com/watch?v=cp2rRlEK2ic)
-- [Директор по фронтенду](https://t.me/+DwMpehY_jcM1YzIy)
+- Телеграм-канал: [Директор по фронтенду](https://t.me/+DwMpehY_jcM1YzIy)
+- Телеграм-канал [Дениса Чернова](https://t.me/zede_code)
